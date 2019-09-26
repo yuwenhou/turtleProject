@@ -10,7 +10,7 @@ import sys
 import numpy as np
 import cv2
 import os
-from win32.win32api import GetSystemMetrics
+# from win32.win32api import GetSystemMetrics
 
 WriteStep = 15  # 贝塞尔函数的取样次数
 Speed = 1000
@@ -255,8 +255,11 @@ if __name__ == '__main__':
         print(__file__ + ': error: The file is not a bitmap file.')
         quit()
     bitmap = cv2.imread(args.filename)
-    if bitmap.shape[0] > GetSystemMetrics(1):
+    # if bitmap.shape[0] > GetSystemMetrics(1):
+    #     bitmap = cv2.resize(bitmap, (int(bitmap.shape[1] * (
+    #         (GetSystemMetrics(1) - 50) / bitmap.shape[0])), GetSystemMetrics(1) - 50))
+    if bitmap.shape[0] > (80,32)(1):
         bitmap = cv2.resize(bitmap, (int(bitmap.shape[1] * (
-            (GetSystemMetrics(1) - 50) / bitmap.shape[0])), GetSystemMetrics(1) - 50))
+            ((80,32)(1) - 50) / bitmap.shape[0])), (80,32)(1) - 50))
     drawBitmap(bitmap)
 
